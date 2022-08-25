@@ -405,6 +405,10 @@ func (r *Reader) ISP(ipAddress net.IP) (*ISP, error) {
 	return &val, err
 }
 
+func (r *Reader) Lookup(ipAddress net.IP, result interface{}) error {
+	return r.mmdbReader.Lookup(ipAddress, result)
+}
+
 // Metadata takes no arguments and returns a struct containing metadata about
 // the MaxMind database in use by the Reader.
 func (r *Reader) Metadata() maxminddb.Metadata {
